@@ -1,4 +1,4 @@
-package logistics;
+package gameplay;
 
 public class Main {
 
