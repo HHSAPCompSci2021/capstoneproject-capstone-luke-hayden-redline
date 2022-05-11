@@ -1,5 +1,7 @@
 package gameplay;
 
-public class Statistics {
+import processing.core.PApplet;
 
+public class Statistics extends PApplet {
+	
 }
