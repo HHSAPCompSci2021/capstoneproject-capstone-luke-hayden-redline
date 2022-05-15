@@ -3,6 +3,11 @@ import java.awt.Color;
 
 import processing.core.PApplet;
 
+
+// 1. draw 2 tracks
+// 2. make car
+// 3. spawn car on track w/stopping rules
+
 /**
  * 
  * @author Luke Ma, Hayden Kaplanov
@@ -15,7 +20,7 @@ public class Player extends Car{ //maybe use a slider to determine max speed vs 
 		//marker.rect();
 	}
 	//up is forward at some speed, left/right changes angle, sin/cos
-	//reduce speed by 3/4 on collision with track
+	//stop on collision with track
 	
 	public String getStats() {
 		return "";
