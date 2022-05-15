@@ -8,4 +8,15 @@ package gameplay;
  */
 public class Track {
 
+	//draw tracks
+	
+	/*
+	 * if (preset = levelNum){
+	 * different instructions for different levels
+	 * }
+	 */
+	
+	public Track() {
+		
+	}
 }
