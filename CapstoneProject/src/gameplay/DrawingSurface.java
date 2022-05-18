@@ -1,5 +1,6 @@
 package gameplay;
 
+import java.awt.Color;
 import java.util.Scanner;
 
 import processing.core.PApplet;
@@ -14,13 +15,14 @@ import processing.core.PApplet;
 public class DrawingSurface extends PApplet{
 	public PApplet drawer;
 	private Track track;
-	private Player car;
+	private Car car;
 		//int n;
 		//Scanner scan = new Scanner(System.in);
 		//System.out.println("Which track?");
 		//n = scan.nextInt();
 		//scan.close();
 		public DrawingSurface() {
+			car = new Car(20,Color.RED);
 			int level = 2;
 			if(level == 1)
 				track = new Track(500, 500, 100, 200, 100);
@@ -38,7 +40,8 @@ public class DrawingSurface extends PApplet{
 			background(255);
 			stroke(0);
 			track.draw(this);
-			rect(100,100,200,200);
+			//rect(100,100,200,200);
+			car.draw(this);
 		}
 		
 		public void keyPressed() {
