@@ -14,6 +14,7 @@ import processing.core.PApplet;
 public class DrawingSurface extends PApplet{
 	public PApplet drawer;
 	private Track track;
+	private Player car;
 		//int n;
 		//Scanner scan = new Scanner(System.in);
 		//System.out.println("Which track?");
@@ -37,6 +38,7 @@ public class DrawingSurface extends PApplet{
 			background(255);
 			stroke(0);
 			track.draw(this);
+			car.draw(this);
 		}
 		
 		public void keyPressed() {

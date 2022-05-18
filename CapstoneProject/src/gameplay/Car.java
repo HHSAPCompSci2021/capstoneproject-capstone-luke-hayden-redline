@@ -1,6 +1,8 @@
 package gameplay;
 import java.awt.Color;
 
+import processing.core.PApplet;
+
 /**
  * 
  * @author Luke Ma, Hayden Kaplanov
@@ -18,6 +20,10 @@ public class Car {
 		//accel = a; too complex
 		//pos = 
 		color = c;
+	}
+	
+	public void draw(PApplet drawer) {
+		drawer.rect(200, 200, 100, 100);
 	}
 	
 	public void accelerate() {
