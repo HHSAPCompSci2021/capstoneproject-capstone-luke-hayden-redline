@@ -12,14 +12,35 @@ import processing.core.PApplet;
  *
  */
 public class DrawingSurface extends PApplet{
-	public Track t;
 	public PApplet drawer;
-	public DrawingSurface() {
+	private Track track;
 		//int n;
 		//Scanner scan = new Scanner(System.in);
 		//System.out.println("Which track?");
 		//n = scan.nextInt();
 		//scan.close();
-		t = new Track(1,drawer);
+		public DrawingSurface() {
+			int level = 2;
+			if(level == 1)
+				track = new Track(500, 500, 100, 200, 100);
+			else if(level == 2)
+				track = new Track(500, 500, 150, 300, 300);
+		}
+		
+		
+		public void setup() {
+			
+		}
+		
+		
+		public void draw() {
+			background(255);
+			stroke(0);
+			track.draw(this);
+		}
+		
+		public void keyPressed() {
+			if (keyCode == LEFT) {
+			}
 	}
 }
