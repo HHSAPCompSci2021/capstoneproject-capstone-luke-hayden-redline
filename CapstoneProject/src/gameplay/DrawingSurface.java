@@ -38,7 +38,7 @@ public class DrawingSurface extends PApplet{
 			background(255);
 			stroke(0);
 			track.draw(this);
-			car.draw(this);
+			rect(100,100,200,200);
 		}
 		
 		public void keyPressed() {

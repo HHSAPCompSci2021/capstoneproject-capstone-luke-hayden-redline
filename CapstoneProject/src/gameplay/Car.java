@@ -23,7 +23,7 @@ public class Car {
 	}
 	
 	public void draw(PApplet drawer) {
-		drawer.rect(200, 200, 100, 100);
+
 	}
 	
 	public void accelerate() {
