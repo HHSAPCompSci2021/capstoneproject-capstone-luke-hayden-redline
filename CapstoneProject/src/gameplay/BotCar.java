@@ -9,7 +9,7 @@ import java.awt.Color;
  * Represents a car controlled by an AI
  */
 public class BotCar extends Car {
-	public BotCar(int ms, int a, Color c) {
-		super(ms, a, c);
+	public BotCar(int s, Color c) {
+		super(s, c);
 	}
 }
