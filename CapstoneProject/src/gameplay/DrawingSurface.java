@@ -25,9 +25,9 @@ public class DrawingSurface extends PApplet{
 			car = new Car(20,Color.RED);
 			int level = 2;
 			if(level == 1)
-				track = new Track(500, 500, 100, 200, 100);
+				track = new StraightTrack(500, 500, 800, 300);
 			else if(level == 2)
-				track = new Track(500, 500, 150, 300, 300);
+				track = new ArcTrack(500, 500, 150, 300, 300);
 		}
 		
 		

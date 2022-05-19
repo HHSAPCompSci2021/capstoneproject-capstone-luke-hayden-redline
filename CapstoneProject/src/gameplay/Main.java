@@ -39,7 +39,7 @@ public class Main {
 		h = scan.nextInt();
 		scan.close();
 	*/	
-		window.setSize(1600,900);
+		window.setSize(1000,900);
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
