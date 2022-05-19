@@ -15,7 +15,7 @@ import processing.core.PApplet;
  * Represents a car controlled by a player (maybe have faster default speeds?)
  */
 public class Player extends Car{ //maybe use a slider to determine max speed vs accel, like what F-Zero has
-	public Player(int ms, Color c) {
+	public Player(int ms, Color c, int n) {
 		super(ms, c);
 	}
 	//up is forward at some speed, left/right changes angle, sin/cos

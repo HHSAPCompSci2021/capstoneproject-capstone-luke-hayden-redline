@@ -10,7 +10,7 @@ import processing.core.PApplet;
  * Represents a car in the game
  */
 public class Car {
-	private int speed;
+	private int speed; //finishLine is own class, tick lapCount by 1 each time car.intersects
 	private Color color;
 	
 	private int pos; //will change frequently
@@ -23,7 +23,7 @@ public class Car {
 	}
 	
 	public void draw(PApplet drawer) {
-		drawer.rect(100, 100, 200, 200);
+		drawer.rect(100, 100, 25, 25);
 	}
 	
 	public void accelerate() {
@@ -32,6 +32,8 @@ public class Car {
 	
 	
 	public int getPos() {
+		
+		// if lapcount>some other car.lapcount x>some car OR y> some other car
 		return pos;
 	}
 
