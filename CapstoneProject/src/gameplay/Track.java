@@ -22,17 +22,27 @@ public class Track extends Shape {
 
 	@Override
 	public void draw(PApplet drawer) {
-		drawer.arc((float)x, (float)y, (float)outerRadius*2, (float)outerRadius*2, PApplet.HALF_PI, PApplet.PI+PApplet.HALF_PI);
-		drawer.arc((float)x, (float)y, (float)innerRadius*2, (float)innerRadius*2, PApplet.HALF_PI, PApplet.PI+PApplet.HALF_PI);
+		drawer.background(0, 97, 62);
 		
+		drawer.fill(75);
 		drawer.arc((float)(x+straightLength), (float)y, (float)outerRadius*2, (float)outerRadius*2, -PApplet.PI+PApplet.HALF_PI, PApplet.HALF_PI);
+		drawer.fill(0,97,62);
 		drawer.arc((float)(x+straightLength), (float)y, (float)innerRadius*2, (float)innerRadius*2, -PApplet.PI+PApplet.HALF_PI, PApplet.HALF_PI);
+		
+		drawer.fill(75);
+		drawer.arc((float)x, (float)y, (float)outerRadius*2, (float)outerRadius*2, PApplet.HALF_PI, PApplet.PI+PApplet.HALF_PI);
+		drawer.fill(0,97,62);
+		drawer.arc((float)x, (float)y, (float)innerRadius*2, (float)innerRadius*2, PApplet.HALF_PI, PApplet.PI+PApplet.HALF_PI);
 		
 		drawer.line((float)x, (float)(y-innerRadius), (float)(x+straightLength), (float)(y-innerRadius));
 		drawer.line((float)x, (float)(y-outerRadius), (float)(x+straightLength), (float)(y-outerRadius));
 		drawer.line((float)x, (float)(y+innerRadius), (float)(x+straightLength), (float)(y+innerRadius));
 		drawer.line((float)x, (float)(y+outerRadius), (float)(x+straightLength), (float)(y+outerRadius));
-		
+
+		drawer.fill(75);
+		drawer.noStroke();
+		drawer.rect((float)x, (float)(y-innerRadius-1), (float)(straightLength), (float)(innerRadius-outerRadius+2));
+		drawer.rect((float)x, (float)(y+innerRadius+1), (float)(straightLength), (float)(outerRadius-innerRadius-1));
 	}
 
 	@Override
