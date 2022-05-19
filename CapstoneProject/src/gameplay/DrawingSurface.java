@@ -40,6 +40,7 @@ public class DrawingSurface extends PApplet{
 			background(255);
 			stroke(0);
 			track.draw(this);
+			stroke(0);
 			//rect(100,100,200,200);
 			car.draw(this);
 		}

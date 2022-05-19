@@ -53,7 +53,10 @@ public class ArcTrack extends Track {
 		drawer.noStroke();
 		drawer.rect((float)x, (float)(y-innerRadius-1), (float)(straightLength), (float)(innerRadius-outerRadius+2));
 		drawer.rect((float)x, (float)(y+innerRadius+1), (float)(straightLength), (float)(outerRadius-innerRadius-1));
-
+		
+		drawer.stroke(255);
+		drawer.line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius)); //start line
+		drawer.line((float)(x+straightLength/2-1), (float)(y+innerRadius), (float)(x+straightLength/2-1), (float)(y+outerRadius)); //finish line
 	}
 
 	@Override
