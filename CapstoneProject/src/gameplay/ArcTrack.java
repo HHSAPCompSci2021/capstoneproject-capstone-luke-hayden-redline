@@ -1,6 +1,7 @@
 package gameplay;
 
 import processing.core.PApplet;
+import java.awt.Color;
 
 public class ArcTrack extends Track {
 	private double innerRadius;
@@ -12,6 +13,8 @@ public class ArcTrack extends Track {
 		this.innerRadius = innerRadius;
 		this.outerRadius = outerRadius;
 		this.straightLength = straightLength;
+		this.start = new Line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius));
+		this.end = new Line((float)(x+straightLength/2-2), (float)(y+innerRadius), (float)(x+straightLength/2-2), (float)(y+outerRadius));
 	}
 	// ignore this comment, I'm testing something, you can delete it
 	@Override
@@ -55,30 +58,38 @@ public class ArcTrack extends Track {
 		drawer.rect((float)x, (float)(y+innerRadius+1), (float)(straightLength), (float)(outerRadius-innerRadius-1));
 		
 		drawer.stroke(255);
-		drawer.line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius)); //start line
-		drawer.line((float)(x+straightLength/2-1), (float)(y+innerRadius), (float)(x+straightLength/2-1), (float)(y+outerRadius)); //finish line
+		start.setStrokeColor(new Color(0,0,255));
+		start.setStrokeWeight(1);
+		start.draw(drawer);
+		end.draw(drawer);
+		end.setStrokeColor(new Color(0,255,255));
+		end.setStrokeWeight(1);
+//		drawer.stroke(255);
+//		drawer.line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius)); //start line
+//		drawer.line((float)(x+straightLength/2-1), (float)(y+innerRadius), (float)(x+straightLength/2-1), (float)(y+outerRadius)); //finish line
 	}
 
 	@Override
 	public boolean isPointOn(double x, double y) { // test for corners
-		if (x < this.x - straightLength / 2 - outerRadius)
+		double centerX = this.x + straightLength/2;
+		if (x < centerX - straightLength / 2 - outerRadius)
 			return false;
-		else if (x > this.x + straightLength / 2 + outerRadius)
+		else if (x > centerX + straightLength / 2 + outerRadius)
 			return false;
-		else if (x > this.x - straightLength / 2 && x < this.x + straightLength / 2) {
+		else if (x > centerX - straightLength / 2 && x < centerX + straightLength / 2) {
 			if (y < this.y - outerRadius)
 				return false;
 			else if (y > this.y + outerRadius)
 				return false;
 			else if (y > this.y - innerRadius && y < this.y + innerRadius)
 				return false;
-		} else if (x < this.x - straightLength / 2 && x > this.x - straightLength / 2 - outerRadius) {
-			double distSquare = (x - (this.x - straightLength / 2)) * (x - (this.x - straightLength / 2))
+		} else if (x < centerX - straightLength / 2 && x > centerX - straightLength / 2 - outerRadius) {
+			double distSquare = (x - (centerX - straightLength / 2)) * (x - (centerX - straightLength / 2))
 					+ (y - this.y) * (y - this.y);
 			if (distSquare > outerRadius * outerRadius || distSquare < innerRadius * innerRadius)
 				return false;
-		} else if (x > this.x + straightLength / 2 && x < this.x + straightLength / 2 + outerRadius) {
-			double distSquare = (x - (this.x + straightLength / 2)) * (x - (this.x + straightLength / 2))
+		} else if (x > centerX + straightLength / 2 && x < centerX + straightLength / 2 + outerRadius) {
+			double distSquare = (x - (centerX + straightLength / 2)) * (x - (centerX + straightLength / 2))
 					+ (y - this.y) * (y - this.y);
 			if (distSquare > outerRadius * outerRadius || distSquare < innerRadius * innerRadius)
 				return false;

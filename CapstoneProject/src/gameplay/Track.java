@@ -7,8 +7,8 @@ package gameplay;
  */
 public abstract class Track extends Shape {
 	private int level;
-	private Line start;
-	private Line end;
+	protected Line start;
+	protected Line end;
 	
 	public Track(double x, double y) {
 		super(x, y);
