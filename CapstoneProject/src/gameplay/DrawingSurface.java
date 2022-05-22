@@ -65,6 +65,9 @@ public class DrawingSurface extends PApplet {
 		if(playerCar.canMove(track))
 			playerCar.move();
 			//check for intersection w/fin line
+			if(track.getStart().getX2()==0) {
+				
+			}
 		playerCar.draw(this);
 		/* if(playerCar.getLaps() >= winningLaps)
 		 *   print(playerCar.getName() + " wins");

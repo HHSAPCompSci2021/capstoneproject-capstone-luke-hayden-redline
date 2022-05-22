@@ -23,7 +23,8 @@ class Point {
 }
 
 public class Car {
-	// center of the rectange
+	// center of the rectangle
+	private String name;
 	private double x;
 	private double y;
 
@@ -38,7 +39,8 @@ public class Car {
 
 	private int pos; // will change frequently
 
-	public Car(double x, double y, int w, int h, int initialSpeed, int maxSpeed, double angleDeg, Color color) {
+	public Car(String name, double x, double y, int w, int h, int initialSpeed, int maxSpeed, double angleDeg, Color color) {
+		this.name = name;
 		this.x = x;
 		this.y = y;
 		this.w = w;
