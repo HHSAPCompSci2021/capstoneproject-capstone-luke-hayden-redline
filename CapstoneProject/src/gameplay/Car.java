@@ -49,6 +49,8 @@ public class Car {
 		this.speed = initialSpeed;
 		this.angleDeg = angleDeg;
 		this.color = color;
+		
+		this.lapCount = 0;
 	}
 
 	public void draw(PApplet drawer) {
@@ -60,6 +62,18 @@ public class Car {
 		drawer.rect(0, 0, w, h);
 		drawer.popMatrix();
 		drawer.rectMode(PApplet.CORNER);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
 	}
 
 	public void move() {
@@ -84,8 +98,16 @@ public class Car {
 		return pos;
 	}
 	
+	public double getAngle() {
+		return angleDeg;
+	}
+	
 	public void finishLap() {
 		lapCount++;
+	}
+	
+	public int getLaps() {
+		return lapCount;
 	}
 
 	public List<Point> getCorners() {
