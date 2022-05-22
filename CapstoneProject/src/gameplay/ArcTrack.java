@@ -16,7 +16,6 @@ public class ArcTrack extends Track {
 		this.start = new Line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius));
 		this.end = new Line((float)(x+straightLength/2-2), (float)(y+innerRadius), (float)(x+straightLength/2-2), (float)(y+outerRadius));
 	}
-	// ignore this comment, I'm testing something, you can delete it
 	@Override
 	public void draw(PApplet drawer) {
 		drawer.arc((float) x, (float) y, (float) outerRadius * 2, (float) outerRadius * 2, PApplet.HALF_PI,
