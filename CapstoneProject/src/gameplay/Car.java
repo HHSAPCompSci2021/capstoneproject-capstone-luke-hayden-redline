@@ -34,7 +34,7 @@ public class Car {
 	private int speed;
 	private Color color;
 	
-	private int laps;
+	private int lapCount;
 
 	private int pos; // will change frequently
 
@@ -83,7 +83,7 @@ public class Car {
 	}
 	
 	public void finishLap() {
-		laps++;
+		lapCount++;
 	}
 
 	public List<Point> getCorners() {
