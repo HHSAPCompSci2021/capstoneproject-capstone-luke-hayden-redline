@@ -106,6 +106,10 @@ public class Car {
 		lapCount++;
 	}
 	
+	public void stop() {
+		speed = 0;
+	}
+	
 	public int getLaps() {
 		return lapCount;
 	}
