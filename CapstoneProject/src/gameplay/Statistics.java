@@ -27,6 +27,7 @@ public class Statistics extends PApplet {
 	// If answer is true, it will return the high score, while a parameter of "false" returns the level
 	public static int updateStatistics(boolean answer, int level) throws IOException {
 		int result;
+		int returnLevel = 0;
 		// first, if there is a new high score, the high score is updated
 		if (score > highScore) {
 			highScore = score;
@@ -37,7 +38,7 @@ public class Statistics extends PApplet {
 		try {
 		      scan = new Scanner(infoFile);
 		      returnedScore = scan.nextInt();
-		      level = scan.nextInt();
+		      returnLevel = scan.nextInt();
 		      scan.close();
 		} catch (FileNotFoundException e) { // exception handling
 		    e.printStackTrace();
@@ -51,6 +52,7 @@ public class Statistics extends PApplet {
 				// updates the level
 				if (level >= 0) {
 					write.write(level);
+					returnLevel = level;
 				}
 			} catch (FileNotFoundException e) { // exception handling
 			    e.printStackTrace();
@@ -63,7 +65,7 @@ public class Statistics extends PApplet {
 		}
 		
 		// takes the answer parameter to decide what variable to return
-		result = level;
+		result = returnLevel;
 		if (answer == true) {
 			result = highScore;
 		}
