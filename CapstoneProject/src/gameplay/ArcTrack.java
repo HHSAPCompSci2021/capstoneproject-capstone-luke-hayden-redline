@@ -3,6 +3,12 @@ package gameplay;
 import processing.core.PApplet;
 import java.awt.Color;
 
+/**
+ * 
+ * @author Luke Ma, Hayden Kaplanov
+ * @version 6
+ * Draws and simulates behavior of an arc racetrack, not unlike a NASCAR track
+ */
 public class ArcTrack extends Track {
 	private double innerRadius;
 	private double outerRadius;
@@ -16,6 +22,11 @@ public class ArcTrack extends Track {
 		this.start = new Line((float)(x+straightLength/2), (float)(y+innerRadius), (float)(x+straightLength/2), (float)(y+outerRadius));
 		this.end = new Line((float)(x+straightLength/2-2), (float)(y+innerRadius), (float)(x+straightLength/2-2), (float)(y+outerRadius));
 	}
+	
+	/**
+	 * Draws the track
+	 * @param drawer An instance of the PApplet class
+	 */
 	@Override
 	public void draw(PApplet drawer) {
 		drawer.arc((float) x, (float) y, (float) outerRadius * 2, (float) outerRadius * 2, PApplet.HALF_PI,
@@ -69,6 +80,11 @@ public class ArcTrack extends Track {
 	}
 
 	@Override
+	/**
+	 * Checks if a point is on a track
+	 * @param x x-coordinate of point
+	 * @param y y-coordinate of point
+	 */
 	public boolean isPointOn(double x, double y) { // test for corners
 		double centerX = this.x + straightLength/2;
 		if (x < centerX - straightLength / 2 - outerRadius)

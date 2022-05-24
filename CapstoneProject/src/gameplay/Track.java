@@ -3,7 +3,7 @@ package gameplay;
 /**
  * 
  * @author Luke Ma, Hayden Kaplanov
- * @version 1 Represents a racetrack
+ * @version 2 Represents a racetrack
  */
 public abstract class Track extends Shape {
 	private int level;

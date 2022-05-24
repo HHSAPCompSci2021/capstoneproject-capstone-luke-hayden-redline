@@ -11,8 +11,8 @@ import processing.core.PApplet;
 /**
  * 
  * @author Luke Ma, Hayden Kaplanov
- * @version 1 Displays a dynamic background behind tracks and cars during
- *          gameplay by cycling through images
+ * @version 5
+ * Draws current track and all cars
  *
  */
 public class DrawingSurface extends PApplet {
@@ -23,11 +23,6 @@ public class DrawingSurface extends PApplet {
 	private Random rand;
 	private int maxLaps = 3;
 
-	// int n;
-	// Scanner scan = new Scanner(System.in);
-	// System.out.println("Which track?");
-	// n = scan.nextInt();
-	// scan.close();
 	public DrawingSurface() {
 		int level = 2;
 		if (level == 1)
@@ -43,8 +38,8 @@ public class DrawingSurface extends PApplet {
 
 		rand = new Random(System.currentTimeMillis());
 
-		String[] robotNames = new String[] {"Blue Falcon", "Black Bull", "White Cat"};
-		Color[] robotColors = new Color[] {Color.BLUE, Color.BLACK, Color.WHITE};
+		String[] robotNames = new String[] {"Blue Falcon", "Black Bull", "White Cat", "Wild Goose"};
+		Color[] robotColors = new Color[] {Color.BLUE, Color.BLACK, Color.WHITE, Color.GREEN};
 		robotCars = new ArrayList<>();
 		for(int i=0; i<robotNames.length; i++) {
 			robotCars.add(new Car(robotNames[i], track.getStart().getX()-carWidth/2-75-50*i,
@@ -98,6 +93,10 @@ public class DrawingSurface extends PApplet {
 		dispLap();
 	}
 	
+	/**
+	 * Runs once a car has won a race
+	 * @param car The winning car
+	 */
 	public void declareWin(Car car) {
 		fill(255);
 		textSize(50);
@@ -108,21 +107,27 @@ public class DrawingSurface extends PApplet {
 	    }
 	}
 	
+	/**
+	 * Displays what lap each car is on
+	 */
 	public void dispLap() {
 		fill(255);
 		textSize(40);
 		int laps = playerCar.getLaps() > maxLaps ? maxLaps : playerCar.getLaps();
-		text("Lap " + laps +"/"+maxLaps, 100, 100);
+		text("Lap " + laps +"/"+maxLaps, 40, 100);
 		
 		int yPos = 100 + 40;
 		for(Car robotCar : robotCars) {
 			laps = robotCar.getLaps() > maxLaps ? maxLaps : robotCar.getLaps();
 			textSize(20);
-			text(robotCar.getName() + " Lap " + laps +"/"+maxLaps, 100, yPos);
+			text(robotCar.getName() + " Lap " + laps +"/"+maxLaps, 40, yPos);
 			yPos += 40;
 		}
 	}
-
+	
+	/**
+	 * Dictates keyboard controls
+	 */
 	public void keyPressed() {
 		if (keyCode == LEFT) {
 			playerCar.turn(-20);
@@ -135,6 +140,13 @@ public class DrawingSurface extends PApplet {
 		}
 	}
 	
+	/**
+	 * Checks if the car has crossed the finish line
+	 * @param car The car being checked
+	 * @param oldX The car's x-coordinate before moving
+	 * @param oldY The car's y-coordinate before moving
+	 * @return
+	 */
 	private boolean hasCrossedFinishLine(Car car, double oldX, double oldY) {		
 		Line lastMove = new Line(oldX, oldY, car.getX(), car.getY());
 		//check for intersection w/fin line
