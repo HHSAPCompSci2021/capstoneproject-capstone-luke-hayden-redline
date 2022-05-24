@@ -41,7 +41,7 @@ public class Statistics extends PApplet {
 		      returnLevel = scan.nextInt();
 		      scan.close();
 		} catch (FileNotFoundException e) { // exception handling
-		    e.printStackTrace();
+		    System.out.println("The file can't be found");
 		}
 		
 		if (highScore > returnedScore) { // checks if there is a new high score not stored in the file
@@ -55,7 +55,7 @@ public class Statistics extends PApplet {
 					returnLevel = level;
 				}
 			} catch (FileNotFoundException e) { // exception handling
-			    e.printStackTrace();
+				System.out.println("The file can't be found");
 			}
 		}
 		

@@ -26,7 +26,7 @@ public class DrawingSurface extends PApplet {
 	private Statistics stats;
 
 	public DrawingSurface() throws IOException {
-		stats = new Statistics("/Attachments/projectinfo.txt");
+		stats = new Statistics("projectinfo.txt");
 		int level = Statistics.updateStatistics(false, -1);
 		if (level == 1)
 			track = new StraightTrack(500, 500, 800, 300);
