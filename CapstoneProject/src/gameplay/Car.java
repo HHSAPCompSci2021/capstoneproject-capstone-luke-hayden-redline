@@ -37,8 +37,6 @@ public class Car {
 	
 	private int lapCount;
 
-	private int pos; // will change frequently
-
 	public Car(String name, double x, double y, int w, int h, int initialSpeed, int maxSpeed, double angleDeg, Color color) {
 		this.name = name;
 		this.x = x;
@@ -76,12 +74,6 @@ public class Car {
 		if (newSpeed < 0 || newSpeed > maxSpeed)
 			return;
 		speed = newSpeed;
-	}
-
-	public int getPos() {
-
-		// if lapcount>some other car.lapcount x>some car OR y> some other car
-		return pos;
 	}
 	
 	public void finishLap() {
