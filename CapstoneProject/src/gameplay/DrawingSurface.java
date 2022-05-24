@@ -1,6 +1,7 @@
 package gameplay;
 
 import java.awt.Color;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,9 +23,11 @@ public class DrawingSurface extends PApplet {
 	private List<Car> robotCars;
 	private Random rand;
 	private int maxLaps = 3;
+	private Statistics stats;
 
-	public DrawingSurface() {
-		int level = 2;
+	public DrawingSurface() throws IOException {
+		stats = new Statistics("/Attachments/projectinfo.txt");
+		int level = Statistics.updateStatistics(false, -1);
 		if (level == 1)
 			track = new StraightTrack(500, 500, 800, 300);
 		else if (level == 2)

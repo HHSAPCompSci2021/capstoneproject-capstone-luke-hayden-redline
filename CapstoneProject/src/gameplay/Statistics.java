@@ -66,20 +66,13 @@ public class Statistics extends PApplet {
 		
 		// takes the answer parameter to decide what variable to return
 		result = returnLevel;
-		if (answer == true) {
-			result = highScore;
-		}
+		if (answer) result = highScore;
 		return result;
 	}
 	
-	// this is a simple getter method for the normal score
-	public static int getScore() {
-		return score;
-	}
-	
-	// this is both a setter and a getter, as it increments the score by one and then returns it
-	public static int incrementScore() {
-		score++;
+	// this is both a setter and a getter, as it increments the score by one if increment is true and then returns it no matter what
+	public int incrementScore(boolean increment) {
+		if (increment) score++;
 		return score;
 	}
 }
