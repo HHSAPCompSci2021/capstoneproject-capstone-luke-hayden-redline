@@ -39,7 +39,7 @@ public class DrawingSurface extends PApplet {
 		int carHeight = 24;
 		playerCar = new Car("Player", track.getStart().getX()-carWidth,
 				track.getStart().getY()+carHeight,
-				carWidth, carHeight, 0, 10, 0, Color.RED);
+				carWidth, carHeight, 0, 4, 0, Color.RED);
 
 		rand = new Random(System.currentTimeMillis());
 
